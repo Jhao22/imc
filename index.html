@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>IMC</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script>
+function selected(value){
+var fem = document.getElementsByClassName('fem');
+var masc = document.getElementsByClassName('masc');
+var m = document.getElementsByClassName('m');
+var h = document.getElementsByClassName('h');
+
+	if(value != "Masculino"){
+
+  m[0].style.display = 'block';
+  fem[0].style.display = 'block';
+  }else{
+
+  m[0].style.display = 'none';
+  fem[0].style.display = 'none';
+  }
+
+
+  if(value == "Masculino"){
+
+  h[0].style.display = 'block';
+  masc[0].style.display = 'block';
+  }else{
+
+  h[0].style.display = 'none';
+  masc[0].style.display = 'none';
+  }
+}
+
+</script>
+
+<script>
+
+
+ function validar() {
+
+ //document.getElementById("m").style.display = 'none';
+ //pegamos o valor do input
+
+ var idade = $('#idade').val();
+
+ 
+var peso = $('#peso').val();
+
+var peitoral = parseFloat($ ('#peitoral').val());
+var abdominal = parseFloat($ ('#abdominal').val());
+var coxa = parseFloat($ ('#coxa').val());          // homem
+var triceps =  parseFloat($('#triceps').val());
+var supra = parseFloat($('#supra').val());
+var coxaa = parseFloat($('#coxaa').val());         //mulher
+var dems =0;
+var xum =0;
+var xdois=0;
+var dems2 =0;
+var mul=0;
+var mul2=0;
+var defs2=0;
+var gh,gm,gah,gam,mah,mam,mch,mcm,mh,mm;
+
+
+
+
+
+
+xum = abdominal + coxa + peitoral; //dobras masculinas
+
+xdois = supra + triceps + coxaa; //dobras femininas
+
+//homem
+
+dems = 1.10938 - 0.0008267 * (xum) + 0.0000016 * (xum);
+dems2 = 2 - 0.0002574 * (idade); 
+mul = dems*dems2
+
+gh = [(4.95 / mul) - 4.50] * 100;
+
+//(peso corporal x %G) / 100
+gah = (peso * gh)/100;
+//peso corporal – gordura absoluta
+
+mah = peso - gah;
+
+mch = mah / 0.85;
+
+// Massa corporal ideal (kg)* = massa magra / 0.85 (para homens)
+// = massa magra / 0.75 (para mulheres)
+
+// Massa corporal desviante (kg)* = massa magra – massa corporal ideal
+mh = mah - mch;
+
+//mulher
+
+defs = 1.099421 - 0.0009929 * (xdois) + 0.0000023 * (xdois); 
+defs2 = 2 - 0.0001392 * (idade);
+mul2 = defs * defs2;
+
+gm = [(4.95 / mul2) - 4.50] * 100;
+gam = (peso * gm)/100;
+mam = peso - gam;
+mcm = mam / 0.75;
+mm = mam - mcm;
+
+	document.getElementById("h").innerHTML = mul.toFixed(2);
+	document.getElementById("m").innerHTML = mul2.toFixed(2);
+	document.getElementById("h1").innerHTML = gh.toFixed(2);
+	document.getElementById("m1").innerHTML = gm.toFixed(2);
+    document.getElementById("h2").innerHTML = gah.toFixed(2);
+	document.getElementById("m2").innerHTML = gam.toFixed(2);
+	document.getElementById("h3").innerHTML = mah.toFixed(2);
+	document.getElementById("m3").innerHTML = mam.toFixed(2);
+ 	document.getElementById("h4").innerHTML = mch.toFixed(2);
+	document.getElementById("m4").innerHTML = mcm.toFixed(2);
+	document.getElementById("h5").innerHTML = mh.toFixed(2);
+	document.getElementById("m5").innerHTML = mm.toFixed(2);
+
+
+
+}
+
+</script>
+
+	</head>
+	<body>
+
+		<!-- Cima -->
+			<section id="header">
+				<header class="major">
+					<h1>IMC</h1>
+					<p>Índice de Massa Corporal</a></p>
+				</header>
+				<div class="container">
+					<ul class="actions">
+						<li><a href="#one" class="button special scrolly">Começar</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- Meio -->
+			<section id="one" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>Oque é ?</h2>
+						</header>
+						<p>O Índice de Massa Corporal (IMC) é o padrão pelo qual você pode ver se seus níveis de gordura e peso estão dentro do recomendado pela Organização Mundial de Saúde.</p>
+					</div>
+					<a href="#two" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+		<!-- Meio -->
+			<section id="two" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic02.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>Calcular</h2>
+						</header>
+						<p>Para saber com certeza o quanto você está acima do peso ideal, é preciso calcular o seu Índice de Massa Corporal. Descubra agora, sem complicação, o quanto você tem a perder.</p>
+
+					</div>
+					<a href="#three" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+		<!-- Fim -->
+			<section id="three" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic03.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>Mais uma coisa...</h2>
+						</header>
+<ul>
+<li>Abaixo de 18,5 = abaixo do peso ideal</li>
+<li>Entre 18,5 e 24,9 = peso ideal</li>
+<li>Entre 25,0 e 29,9 = sobrepeso</li>
+<li>Entre 30,0 e 34,9 = obesidade grau I</li>
+<li>Entre 35,0 e 39,9 = obesidade grau II</li>
+<li>Entre 40 e acima = obesidade grau III</li>
+</ul>
+					</div>
+					<a href="#footer" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+		
+
+		<!-- Footer -->
+			<section id="footer">
+				<div class="container">
+					<header class="major">
+						<h2>Calculadora IMC</h2>
+					</header>
+
+<!-- Formulário -->
+
+<form class="contact100-form validate-form" id="form">
+
+
+
+					<div class="wrap-input100 validate-input" data-validate ="Necessário valor">
+						<input class="input100" type="text" id="peso" placeholder="Peso" >
+
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i  aria-hidden="true"></i>
+						</span>
+					</div>
+<br>
+					<div class="wrap-input100 validate-input" data-validate="Necessário valor" >
+						<input class="input100" required type="text"  required id="idade" placeholder="Idade para Homens 18 a 61 - Mulheres 18 a 55">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i aria-hidden="true"></i>
+						</span>
+					</div>
+
+<br>
+
+
+
+
+
+<br>
+					 
+
+     <div class="row">
+        <div class="col-lg-12 text-center">
+
+            <select name="genero" onclick="selected(this.value)" >
+              
+              <option id="a">Masculino</option>
+              <option id="b">Feminino</option>
+             
+            </select>
+        </div>
+    </div>
+
+<!-- Feminino-->
+
+   <div class="row content" >
+         <div class="well text-left">
+            <div class="fem" style="display:none;">
+                <div class="wrap-input100 validate-input" data-validate="Necessário valor" >
+                <br>
+						<input  class="input100" required type="text" required id="triceps" placeholder="tríceps">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i aria-hidden="true"></i>
+				<br>
+				<input  class="input100" required type="text" required id="supra" placeholder="supra-ilíaca">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i aria-hidden="true"></i>
+				<br>
+				<input  class="input100" required type="text" required id="coxaa" placeholder="Coxa">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i aria-hidden="true"></i>
+						</span>
+					</div>
+            </div>
+        </div>
+    </div>
+ 
+ <!-- Maculino -->
+
+<div class="row content" >
+         <div class="well text-left">
+            <div class="masc" style="display:none;">
+                <div class="wrap-input100 validate-input" data-validate="Necessário valor" >
+                <br>
+						<input  class="input100" required type="text" required id="peitoral" placeholder="Peitoral">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i aria-hidden="true"></i>
+			<br>
+<input  class="input100" required type="text" required id="abdominal" placeholder="Abdominal">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i aria-hidden="true"></i>
+						</span>
+			<br>
+			<input  class="input100" required type="text" required id="coxa" placeholder="Coxa">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i aria-hidden="true"></i>
+						</span>
+
+
+			</div>
+            </div>
+        </div>
+    </div>
+
+
+<br>
+
+	<div class="h" style="display:none;">	
+	<p>Homem</p>				
+<p>Dens para Homem :  <span id="h"></span></p>
+<p>Gordura Relativa (%) :          <span id="h1"></span></p>
+<p>Gordura absoluta (kg):      <span id="h2"></span></p>
+<p>Massa magra absoluta (kg):      <span id="h3"></span></p>
+<p>Massa corporal ideal (kg): 	  <span id="h4"></span></p>
+<p>Massa corporal em excesso (kg): <span id="h5"></span></p>
+</div>
+
+
+<!-- Mulher -->
+
+	<div class="m" style="display:none;">	
+	<p>Mulher</p>				
+<p>Dens para Mulher :  <span id="m"></span></p>
+<p>Gordura Relativa (%) : <span id="m1"></span></p>
+<p>Gordura absoluta (kg):      <span id="m2"></span></p>
+<p>Massa magra absoluta (kg):      <span id="m3"></span></p>
+<p>Massa corporal ideal (kg): 	  <span id="m4"></span></p>
+<p>Massa corporal em excesso (kg): <span id="m5"></span></p>
+</div>
+
+<br>
+<button  class="button" type="button" onclick="return validar()">Calcular</button>
+
+					</div>
+</form>
+			</div>
+		</div>
+	</div>
+
+
+<!-- Fim do Formulário -->
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
