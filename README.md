@@ -1,3 +1,3 @@
 # imc
 
-https://github.com/Jhao22/imc
+https://jhao22.github.io/imc/
